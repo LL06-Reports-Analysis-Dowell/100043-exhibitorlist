@@ -1,0 +1,17 @@
+{% extends "calendar_app/base.html" %}
+
+<!-- {% block title%}
+Main
+{% endblock title %} -->
+
+{% block content %}
+<p>Django Event Calendar</p>
+<div class="clearfix">
+      <span class="left m-2" style="font-size: 20px;">Wellcome, {{ request.user }}</span>
+    <a class="btn btn-info right mr-2" href="{% url 'calendar_app:calendars' %}?{{ next_month }} "> Next Month >> </a>
+    <a class="btn btn-info right mr-2" href="{% url 'calendar_app:calendars' %}?{{ prev_month }}"> << Previous Month </a>
+</div>
+<div style="color: green;">
+    {{ calendar }}
+</div>
+{% endblock content %}
