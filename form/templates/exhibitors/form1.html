@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- MultiStep Form -->
+<div class="container mt-5 mb-5" style="background-color: #ffffff;">
+  <div class="row">
+<h2><strong class="pt-3">Exhibitors</strong></h2>
+  </div>
+  </div>
+          <div class="container mt-5 mb-5" style="background-color: #ffffff;">
+                <div class="row">
+                    <!-- <div class="col-md-12 mx-0 form-group"> -->
+                        <form id="msform" action="{% url 'exhibitors:multistepform1' %}" method="post">
+                          {% csrf_token %}
+                            <!-- progressbar -->
+                            <ul class="text-center" id="progressbar">
+                                <li class="active" id="one"><strong>Step 1</strong></li>
+                                <li id="two"><strong>Step 2</strong></li>
+                                <li id="three"><strong>Step 3</strong></li>
+                            </ul>
+                            <!-- fieldsets -->
+                            <fieldset>
+                              <br>
+                              <p>
+                                Project - Prepare a list of future exhibitions in each venue <br>
+                              You have to enter EVENT details <br>
+                              Its NOT Venue details <br>
+                              Its NOT Exhibitor details <br>
+                              Its Exhibition details <br>
+                              <hr>
+                              Email - Your email <br>
+                              Select venue - Select venue from the list, then visit website of the venue for event schedules <br>
+                              Event - Add event from website of venue (details of exhibition, not exhibitors), Enter future events only <br>
+                              Complete events in one venue then proceed to next venue <br>
+                              Do not enter wrong or bogus data to fields if data is not available
+                            </p>
+                            <p>The name and photo associated with your account will be recorded when you upload files and submit this form. Only the email you enter is part of your response.</p>
+                            <p style="color: red;">* Required</p>
+                                <!-- <div class="form-card"> -->
+                                <p><label class="required ms-2">Email</label>
+                                  <input type="email" name="email" class="form-control" placeholder="Your answer" maxlength="254" required></p>
+                                <!-- </div> -->
+                                <!-- <input type="button" name="next" class="next action-button" value="Next Step" /> -->
+                                <input type="submit" name="submit" class="confirm action-button" value="Next"/>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+{% endblock content %}
+{% block script %}
+<!-- <script src="{% static 'js/form1.js' %}"></script> -->
+{% endblock script %}
